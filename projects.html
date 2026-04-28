@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projects by Muhammad Huraira — AI search platforms, social apps, e-commerce, and creative web experiences.">
+  <title>Projects — Muhammad Huraira</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#E8E8E8;font-family:system-ui,sans-serif;overflow-x:hidden}.preloader{position:fixed;inset:0;background:#000;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.preloader-text{font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:.08em}.preloader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}.preloader-bar{width:0%;height:100%;background:linear-gradient(90deg,#00A3FF,#00F5FF);border-radius:10px}.preloader-counter{font-size:.72rem;color:#555;letter-spacing:.1em;font-family:monospace}[data-barba="wrapper"]{opacity:0}</style>
+  <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- --- PRELOADER --- -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-text">MH</div>
+    <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+    <div class="preloader-counter">0%</div>
+  </div>
+
+  <div class="scroll-progress"></div>
+  <canvas id="thread-canvas"></canvas>
+
+  <!-- --- NAVIGATION --- -->
+  <nav class="navbar" id="navbar">
+    <a href="/" class="nav-logo" aria-label="Home"><img src="/logo.png" alt="MH Logo" class="nav-logo-img"/></a>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/about.html">About</a></li>
+      <li><a href="/projects.html">Projects</a></li>
+      <li><a href="/blog.html">Blog</a></li>
+      <li><a href="/contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="drawer-overlay" id="drawer-overlay"></div>
+  <div class="mobile-drawer" id="mobile-drawer">
+    <button class="drawer-close" id="drawer-close" aria-label="Close menu">&#x2715;</button>
+    <a href="/">Home</a>
+    <a href="/about.html">About</a>
+    <a href="/projects.html">Projects</a>
+    <a href="/blog.html">Blog</a>
+    <a href="/contact.html">Contact</a>
+  </div>
+
+  <div data-barba="wrapper">
+    <div data-barba="container" data-barba-namespace="projects">
+
+      <!-- -----------------------------------
+           PROJECTS HEADER
+           ----------------------------------- -->
+      <section class="section projects-intro" id="projects-intro">
+        <div class="container">
+          <div class="section-header reveal">
+            <div class="section-label">Portfolio</div>
+            <h1 class="section-title" id="projects-scramble" data-text="My Projects">My Projects<span class="stitch-underline"></span></h1>
+            <p class="section-desc">Every project is a thread in my story — crafted with care, shipped with confidence.</p>
+          </div>
+
+          <!-- Filters -->
+          <div class="project-filters reveal reveal-delay-1">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="fullstack">Full-Stack</button>
+            <button class="filter-btn" data-filter="frontend">Frontend</button>
+            <button class="filter-btn" data-filter="ai">AI / Search</button>
+          </div>
+
+          <!-- Projects Grid -->
+          <div class="projects-grid">
+
+            <!-- Findra -->
+            <div class="project-card tilt-card" data-category="fullstack frontend ai">
+              <div class="project-card-header purple"></div>
+              <div class="project-card-body">
+                <h3>Findra</h3>
+                <p>Search intelligence that turns any name into a structured data card. SerpAPI scrapes Google, Claude AI structures it, MongoDB caches it — all in under 3 seconds.</p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">SerpAPI</span>
+                  <span class="tag">Claude AI</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://findra.vercel.app" target="_blank" class="btn btn-primary btn-sm">Live Demo ?</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- SharePulse -->
+            <div class="project-card tilt-card" data-category="fullstack frontend">
+              <div class="project-card-header blue"></div>
+              <div class="project-card-body">
+                <h3>SharePulse</h3>
+                <p>A peer-to-peer file sharing app using WebRTC and 6-digit OTP keys. Files transfer directly between browsers — the server never stores a single byte.</p>
+                <div class="project-tags">
+                  <span class="tag">React</span>
+                  <span class="tag">Node.js</span>
+                  <span class="tag">WebRTC</span>
+                  <span class="tag">Socket.io</span>
+                  <span class="tag">MongoDB</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://share-pulse.vercel.app" target="_blank" class="btn btn-primary btn-sm">Live Demo ?</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- FashionStore -->
+            <div class="project-card tilt-card" data-category="fullstack frontend">
+              <div class="project-card-header mint"></div>
+              <div class="project-card-body">
+                <h3>FashionStore</h3>
+                <p>Production e-commerce with 360+ products, Stripe payments, admin panel, Botpress AI chatbot, and 50K+ customers across 40+ countries.</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">MongoDB</span>
+                  <span class="tag">Stripe</span>
+                  <span class="tag">Cloudinary</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://fashionsstore.vercel.app" target="_blank" class="btn btn-primary btn-sm">Live Demo ?</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- PixAura -->
+            <div class="project-card tilt-card" data-category="fullstack frontend">
+              <div class="project-card-header rose"></div>
+              <div class="project-card-body">
+                <h3>PixAura</h3>
+                <p>A browser-based image tools suite with 11 client-side utilities, AI background removal, and a modern glassmorphism UI — all privacy-first.</p>
+                <div class="project-tags">
+                  <span class="tag">React 18</span>
+                  <span class="tag">TypeScript</span>
+                  <span class="tag">Vite</span>
+                  <span class="tag">Tailwind</span>
+                  <span class="tag">Replicate AI</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="https://pix-aura.vercel.app" target="_blank" class="btn btn-primary btn-sm">Live Demo ?</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- NeedleSearch -->
+            <div class="project-card tilt-card" data-category="frontend">
+              <div class="project-card-header thread"></div>
+              <div class="project-card-body">
+                <h3>NeedleSearch</h3>
+                <p>An AI-powered search interface with intelligent suggestions, contextual results, and a thread-based navigation experience.</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">OpenAI API</span>
+                  <span class="tag">TypeScript</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="#" class="btn btn-primary btn-sm">Coming Soon</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- OrbitBlog -->
+            <div class="project-card tilt-card" data-category="frontend">
+              <div class="project-card-header blue"></div>
+              <div class="project-card-body">
+                <h3>OrbitBlog</h3>
+                <p>A minimal blogging platform with MDX support, beautiful typography, and an orbital reading experience that keeps users engaged.</p>
+                <div class="project-tags">
+                  <span class="tag">Next.js</span>
+                  <span class="tag">MDX</span>
+                  <span class="tag">TailwindCSS</span>
+                </div>
+                <div class="project-card-actions">
+                  <a href="#" class="btn btn-primary btn-sm">Coming Soon</a>
+                  <a href="https://github.com/dev-huraira" target="_blank" class="btn btn-ghost btn-sm">GitHub ?</a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- --- Thread Divider --- -->
+      <svg class="thread-divider" viewBox="0 0 1200 50" preserveAspectRatio="none">
+        <path d="M0,25 Q300,8 600,25 T1200,28"/>
+      </svg>
+
+      <!-- --- CTA --- -->
+      <section class="cta-section" id="page-cta">
+        <div class="container">
+          <h2 class="cta-title reveal">Have a Project in Mind?</h2>
+          <p class="cta-desc reveal reveal-delay-1">I'm always open to new challenges. Let's thread your vision into reality.</p>
+          <div class="reveal reveal-delay-2">
+            <div class="magnetic-wrap">
+              <a href="/contact.html" class="btn btn-primary btn-lg">Let's Talk ?</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- --- FOOTER --- -->
+      <footer class="footer">
+        <canvas id="footer-canvas" class="footer-canvas"></canvas>
+        <div class="footer-inner">
+          <!-- Brand Section (TOP) -->
+          <div class="footer-brand">
+            <div class="available-badge"><span class="available-dot"></span> Available for opportunities</div>
+            <div class="footer-logo">Muhammad Huraira</div>
+            <p class="footer-tagline">Full-stack developer crafting premium digital experiences with clean code and creative design.</p>
+            <div class="footer-socials">
+              <a href="https://github.com/dev-huraira" target="_blank" class="footer-social-btn github" aria-label="GitHub">
+                <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/muhammad-huraira-16784534b" target="_blank" class="footer-social-btn linkedin" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+              </a>
+              <a href="mailto:huraira3076@gmail.com" class="footer-social-btn email" aria-label="Email">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </a>
+            </div>
+          </div><!-- /footer-brand -->
+        </div><!-- /footer-inner -->
+
+        <!-- Accordion Columns - FULL WIDTH -->
+        <div class="footer-accordions">
+          <div class="footer-acc-row">
+            <div class="footer-col-title">Navigation</div>
+            <div class="footer-accordion-body">
+              <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/about.html">About</a>
+                <a href="/projects.html">Projects</a>
+                <a href="/blog.html">Blog</a>
+                <a href="/contact.html">Contact</a>
+              </div>
+            </div>
+          </div>
+          <div class="footer-acc-row">
+            <div class="footer-col-title">Projects</div>
+            <div class="footer-accordion-body">
+              <div class="footer-links">
+                <a href="https://findra.vercel.app" target="_blank">Findra</a>
+                <a href="https://share-pulse.vercel.app" target="_blank">SharePulse</a>
+                <a href="https://fashionsstore.vercel.app" target="_blank">FashionStore</a>
+                <a href="https://pix-aura.vercel.app" target="_blank">PixAura</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Bar - always visible -->
+        <div class="footer-contact-bar">
+          <a href="mailto:huraira3076@gmail.com" class="footer-contact-pill">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            huraira3076@gmail.com
+          </a>
+          <span class="footer-contact-dot">·</span>
+          <a href="tel:+923326871681" class="footer-contact-pill">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            +92 332 6871681
+          </a>
+          <span class="footer-contact-dot">·</span>
+          <span class="footer-contact-pill static">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+            Pakistan
+          </span>
+        </div>
+
+        <div class="footer-bottom">
+          <p class="footer-copy">© 2026 Muhammad Huraira. All rights reserved.</p>
+          <p class="footer-craft">Crafted with thread & code ?</p>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">?</button>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
