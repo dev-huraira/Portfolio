@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case Study: Building SharePulse — a peer-to-peer file sharing app with WebRTC and 6-digit OTP keys.">
-  <title>SharePulse Case Study — Muhammad Huraira</title>
-  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#E8E8E8;font-family:system-ui,sans-serif;overflow-x:hidden}.preloader{position:fixed;inset:0;background:#000;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.preloader-text{font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:.08em}.preloader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}.preloader-bar{width:0%;height:100%;background:linear-gradient(90deg,#00A3FF,#00F5FF);border-radius:10px}.preloader-counter{font-size:.72rem;color:#555;letter-spacing:.1em;font-family:monospace}[data-barba="wrapper"]{opacity:0}</style>
+  <meta name="description" content="Case Study: Building SharePulse ï¿½ a peer-to-peer file sharing app with WebRTC and 6-digit OTP keys.">
+  <title>SharePulse Case Study ï¿½ Muhammad Huraira</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#E8E8E8;font-family:system-ui,sans-serif;overflow-x:hidden}.preloader{position:fixed;inset:0;background:#000;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.preloader-text{display:flex;align-items:center;justify-content:center}.preloader-logo{height:56px;width:56px;object-fit:contain}.preloader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}.preloader-bar{width:0%;height:100%;background:linear-gradient(90deg,#00A3FF,#00F5FF);border-radius:10px}.preloader-counter{font-size:.72rem;color:#555;letter-spacing:.1em;font-family:monospace}[data-barba="wrapper"]{opacity:0}</style>
   <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 
   <!-- --- PRELOADER --- -->
   <div class="preloader" id="preloader">
-    <div class="preloader-text">MH</div>
+    <div class="preloader-text"><img src="/logo.png" alt="MH Logo" class="preloader-logo" /></div>
     <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
     <div class="preloader-counter">0%</div>
   </div>
@@ -57,7 +57,7 @@
             <a href="/blog.html" class="label" style="margin-bottom:1.5rem;display:inline-block;opacity:0.7;">? Back to Blog</a>
             <div class="section-label">Case Study</div>
             <h1 class="section-title velocity-text">SharePulse<span class="stitch-underline"></span></h1>
-            <p class="section-desc" style="max-width:640px;">A Send Anywhere-style file sharing app that transfers files peer-to-peer using WebRTC — no files ever touch the server. Just a 6-digit key and a direct connection.</p>
+            <p class="section-desc" style="max-width:640px;">A Send Anywhere-style file sharing app that transfers files peer-to-peer using WebRTC ï¿½ no files ever touch the server. Just a 6-digit key and a direct connection.</p>
           </div>
 
           <div class="case-study-meta reveal reveal-delay-1">
@@ -71,7 +71,7 @@
             </div>
             <div class="case-study-meta-item">
               <span class="case-study-meta-label">Stack</span>
-              <span class="case-study-meta-value">React · Node.js · Socket.io · WebRTC · MongoDB</span>
+              <span class="case-study-meta-value">React ï¿½ Node.js ï¿½ Socket.io ï¿½ WebRTC ï¿½ MongoDB</span>
             </div>
             <div class="case-study-meta-item">
               <span class="case-study-meta-label">Status</span>
@@ -92,43 +92,43 @@
           <div class="case-study-content">
 
             <h2>The Challenge</h2>
-            <p>Most file sharing services upload your files to a remote server — introducing privacy concerns, size limits, and slow transfers. I wanted to build something different: a tool that sends files directly from one browser to another, with zero server-side storage.</p>
-            <p>The goal was to create a seamless, Send Anywhere-style experience where a sender picks a file, gets a 6-digit code, and the receiver enters that code to start a direct peer-to-peer transfer — no accounts, no uploads, no waiting.</p>
+            <p>Most file sharing services upload your files to a remote server ï¿½ introducing privacy concerns, size limits, and slow transfers. I wanted to build something different: a tool that sends files directly from one browser to another, with zero server-side storage.</p>
+            <p>The goal was to create a seamless, Send Anywhere-style experience where a sender picks a file, gets a 6-digit code, and the receiver enters that code to start a direct peer-to-peer transfer ï¿½ no accounts, no uploads, no waiting.</p>
 
             <h2>The Approach</h2>
             <ul>
               <li>Built a <strong>React + Tailwind CSS</strong> frontend with Vite for instant HMR and a clean, modern UI</li>
-              <li>Created a <strong>Node.js + Express</strong> backend that handles only signaling — generating OTP codes and coordinating WebRTC handshakes via Socket.io</li>
-              <li>Implemented <strong>WebRTC RTCDataChannel</strong> for direct browser-to-browser file transfer — the server never sees or stores the file data</li>
-              <li>Used <strong>MongoDB</strong> for temporary metadata storage — file name, size, and MIME type are stored briefly; the OTP expires after 10 minutes</li>
+              <li>Created a <strong>Node.js + Express</strong> backend that handles only signaling ï¿½ generating OTP codes and coordinating WebRTC handshakes via Socket.io</li>
+              <li>Implemented <strong>WebRTC RTCDataChannel</strong> for direct browser-to-browser file transfer ï¿½ the server never sees or stores the file data</li>
+              <li>Used <strong>MongoDB</strong> for temporary metadata storage ï¿½ file name, size, and MIME type are stored briefly; the OTP expires after 10 minutes</li>
               <li>Built chunked file transfer over the data channel to handle files up to 100MB reliably</li>
               <li>Implemented live progress indicators on both sender and receiver sides</li>
             </ul>
 
             <h2>How It Works</h2>
             <ul>
-              <li><strong>Sender Flow</strong> — Selects a file ? backend generates a 6-digit OTP (metadata only, file stays in browser) ? shares OTP or QR code with receiver</li>
-              <li><strong>Receiver Flow</strong> — Enters OTP ? verifies against backend ? connects via WebRTC signaling ? receives file chunks directly from sender's browser</li>
-              <li><strong>WebRTC Signaling</strong> — Socket.io exchanges SDP offers/answers and ICE candidates, matched by OTP room. Uses Google STUN servers for NAT traversal</li>
-              <li><strong>Security</strong> — OTP is one-time use (invalidated after transfer), expires after 10 minutes, and no files are ever stored on the server</li>
+              <li><strong>Sender Flow</strong> ï¿½ Selects a file ? backend generates a 6-digit OTP (metadata only, file stays in browser) ? shares OTP or QR code with receiver</li>
+              <li><strong>Receiver Flow</strong> ï¿½ Enters OTP ? verifies against backend ? connects via WebRTC signaling ? receives file chunks directly from sender's browser</li>
+              <li><strong>WebRTC Signaling</strong> ï¿½ Socket.io exchanges SDP offers/answers and ICE candidates, matched by OTP room. Uses Google STUN servers for NAT traversal</li>
+              <li><strong>Security</strong> ï¿½ OTP is one-time use (invalidated after transfer), expires after 10 minutes, and no files are ever stored on the server</li>
             </ul>
 
             <h2>Technical Highlights</h2>
-            <p>The core challenge was making WebRTC file transfer reliable across different network conditions. I implemented chunked data channel transfer — files are split into manageable chunks, sent sequentially with flow control, and reassembled on the receiver side. The progress bar updates in real-time on both ends via the data channel's bufferedamount feedback.</p>
+            <p>The core challenge was making WebRTC file transfer reliable across different network conditions. I implemented chunked data channel transfer ï¿½ files are split into manageable chunks, sent sequentially with flow control, and reassembled on the receiver side. The progress bar updates in real-time on both ends via the data channel's bufferedamount feedback.</p>
             <p>For production hardening, the backend includes configurable <strong>rate limiting</strong> (per-IP and per-OTP action), strict CORS allow-listing, and environment-based TURN server configuration for restrictive networks and mobile carriers. Socket connections are also burst-limited to prevent abuse.</p>
-            <p>The signaling-only architecture means the backend is extremely lightweight — it handles zero file I/O, making it cheap to host and easy to scale. MongoDB entries are auto-cleaned on a configurable interval (default 30 seconds).</p>
+            <p>The signaling-only architecture means the backend is extremely lightweight ï¿½ it handles zero file I/O, making it cheap to host and easy to scale. MongoDB entries are auto-cleaned on a configurable interval (default 30 seconds).</p>
 
             <h2>API Architecture</h2>
             <ul>
-              <li><strong>POST /upload</strong> — Accepts file metadata (name, size, MIME type), generates and returns a 6-digit OTP</li>
-              <li><strong>POST /verify</strong> — Validates OTP, returns file metadata to the receiver</li>
-              <li><strong>Socket.io Events</strong> — webrtc_offer, webrtc_answer, webrtc_ice — matched by OTP room for peer connection setup</li>
-              <li><strong>Auto-Cleanup</strong> — Expired OTPs and metadata are purged every 30 seconds</li>
+              <li><strong>POST /upload</strong> ï¿½ Accepts file metadata (name, size, MIME type), generates and returns a 6-digit OTP</li>
+              <li><strong>POST /verify</strong> ï¿½ Validates OTP, returns file metadata to the receiver</li>
+              <li><strong>Socket.io Events</strong> ï¿½ webrtc_offer, webrtc_answer, webrtc_ice ï¿½ matched by OTP room for peer connection setup</li>
+              <li><strong>Auto-Cleanup</strong> ï¿½ Expired OTPs and metadata are purged every 30 seconds</li>
             </ul>
 
             <h2>Results</h2>
             <ul>
-              <li>True peer-to-peer file transfer — zero server-side file storage</li>
+              <li>True peer-to-peer file transfer ï¿½ zero server-side file storage</li>
               <li>Transfers up to 100MB files with live progress on both sides</li>
               <li>One-time OTP codes with 10-minute expiry for security</li>
               <li>Production-ready with rate limiting, CORS, and TURN server support</li>
@@ -202,12 +202,12 @@
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             huraira3076@gmail.com
           </a>
-          <span class="footer-contact-dot">·</span>
+          <span class="footer-contact-dot">ï¿½</span>
           <a href="tel:+923326871681" class="footer-contact-pill">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             +92 332 6871681
           </a>
-          <span class="footer-contact-dot">·</span>
+          <span class="footer-contact-dot">ï¿½</span>
           <span class="footer-contact-pill static">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Pakistan
@@ -215,7 +215,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p class="footer-copy">© 2026 Muhammad Huraira. All rights reserved.</p>
+          <p class="footer-copy">ï¿½ 2026 Muhammad Huraira. All rights reserved.</p>
           <p class="footer-craft">Crafted with thread & code ?</p>
         </div>
       </footer>
@@ -223,7 +223,7 @@
   </div>
 
   <!-- Scroll to Top -->
-  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">?</button>
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 
   <script type="module" src="/js/main.js"></script>
 </body>

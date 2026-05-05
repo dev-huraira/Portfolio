@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Muhammad Huraira — Resume</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@page{size:A4;margin:0}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Outfit',sans-serif;background:#f4f4f4;color:#2d2d3a;font-size:10pt;line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.page{width:210mm;min-height:297mm;margin:0 auto;background:#fff;position:relative;overflow:hidden}
+
+/* ── HEADER ── */
+.header{background:linear-gradient(135deg,#0f172a 0%,#1e293b 100%);color:#fff;padding:36px 40px 30px;position:relative}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#3b82f6,#8b5cf6,#06b6d4)}
+.header-grid{display:flex;align-items:center;gap:28px}
+.avatar{width:82px;height:82px;border-radius:16px;overflow:hidden;border:3px solid rgba(59,130,246,0.5);flex-shrink:0}
+.avatar img{width:100%;height:100%;object-fit:cover}
+.header-info{flex:1}
+.header-name{font-size:26pt;font-weight:800;letter-spacing:-0.5px;line-height:1.1}
+.header-title{font-size:11pt;font-weight:400;color:#94a3b8;margin-top:4px;letter-spacing:0.5px}
+.header-links{display:flex;flex-wrap:wrap;gap:14px;margin-top:12px}
+.header-link{display:flex;align-items:center;gap:5px;font-size:7.8pt;color:#cbd5e1;text-decoration:none}
+.header-link svg{width:12px;height:12px;fill:#60a5fa;flex-shrink:0}
+
+/* ── BODY GRID ── */
+.body{display:grid;grid-template-columns:1fr 200px;gap:0;padding:0}
+.col-main{padding:26px 30px 26px 40px;border-right:1px solid #e8ecf2}
+.col-side{padding:26px 28px 26px 22px;background:#f8fafc}
+
+/* ── SECTION ── */
+.section{margin-bottom:20px}
+.section:last-child{margin-bottom:0}
+.section-title{font-size:9pt;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:#1e293b;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.section-title::before{content:'';width:4px;height:16px;background:linear-gradient(180deg,#3b82f6,#8b5cf6);border-radius:2px}
+
+/* ── SUMMARY ── */
+.summary{font-size:9.5pt;color:#475569;line-height:1.7}
+
+/* ── ENTRIES ── */
+.entry{margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid #f1f5f9}
+.entry:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.entry-top{display:flex;justify-content:space-between;align-items:baseline}
+.entry-role{font-size:10.5pt;font-weight:700;color:#1e293b}
+.entry-date{font-family:'JetBrains Mono',monospace;font-size:7.5pt;color:#3b82f6;font-weight:500;white-space:nowrap}
+.entry-org{font-size:8.5pt;color:#64748b;font-weight:500;margin-top:1px}
+.entry-bullets{margin-top:5px;padding-left:14px;font-size:8.5pt;color:#475569}
+.entry-bullets li{margin-bottom:2px}
+.tech-row{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.tech-pill{font-family:'JetBrains Mono',monospace;font-size:6.5pt;padding:2px 7px;background:#eff6ff;color:#3b82f6;border-radius:3px;font-weight:500}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.proj{padding:12px;border:1px solid #e2e8f0;border-radius:8px;background:#fff;transition:box-shadow .2s}
+.proj-name{font-size:9.5pt;font-weight:700;color:#1e293b;display:flex;align-items:center;gap:5px}
+.proj-name::before{content:'◆';color:#3b82f6;font-size:6pt}
+.proj-type{font-size:7pt;color:#94a3b8;font-weight:500;text-transform:uppercase;letter-spacing:0.5px;margin-top:1px}
+.proj-desc{font-size:7.8pt;color:#64748b;margin-top:4px;line-height:1.45}
+
+/* ── SIDEBAR ── */
+.side-title{font-size:7.5pt;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:#1e293b;margin-bottom:8px;padding-bottom:5px;border-bottom:2px solid #3b82f6}
+.side-section{margin-bottom:18px}
+.side-section:last-child{margin-bottom:0}
+.skill-group{margin-bottom:10px}
+.skill-label{font-size:7pt;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:1px;margin-bottom:4px}
+.skill-list{display:flex;flex-wrap:wrap;gap:3px}
+.skill-chip{font-size:7pt;padding:3px 7px;background:#fff;border:1px solid #e2e8f0;border-radius:4px;color:#334155;font-weight:500}
+/* Lang bars */
+.lang-row{margin-bottom:6px}
+.lang-top{display:flex;justify-content:space-between;font-size:8pt;margin-bottom:3px}
+.lang-name{font-weight:600;color:#334155}
+.lang-lvl{color:#3b82f6;font-weight:500;font-size:7pt}
+.lang-bar{height:4px;background:#e2e8f0;border-radius:4px;overflow:hidden}
+.lang-fill{height:100%;border-radius:4px;background:linear-gradient(90deg,#3b82f6,#8b5cf6)}
+/* Soft skills */
+.soft-item{display:flex;align-items:center;gap:6px;font-size:8pt;color:#475569;margin-bottom:5px}
+.soft-dot{width:6px;height:6px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);flex-shrink:0}
+
+@media print{body{background:#fff}.page{box-shadow:none}}
+@media screen{.page{box-shadow:0 8px 40px rgba(0,0,0,0.12);margin:24px auto}}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-grid">
+      <div class="avatar"><img src="public/Huraira.jpg" alt="Muhammad Huraira"></div>
+      <div class="header-info">
+        <div class="header-name">Muhammad Huraira</div>
+        <div class="header-title">Full-Stack Web Developer · UI Craftsman</div>
+        <div class="header-links">
+          <a class="header-link" href="mailto:huraira3076@gmail.com">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            huraira3076@gmail.com
+          </a>
+          <a class="header-link" href="tel:+923326871681">
+            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+            +92 332 6871681
+          </a>
+          <a class="header-link" href="https://github.com/dev-huraira">
+            <svg viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            github.com/dev-huraira
+          </a>
+          <a class="header-link" href="https://linkedin.com/in/muhammad-huraira-16784534b">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <span class="header-link">
+            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#60a5fa"/></svg>
+            Pakistan
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="body">
+    <!-- MAIN COLUMN -->
+    <div class="col-main">
+
+      <div class="section">
+        <div class="section-title">Profile</div>
+        <p class="summary">Passionate full-stack developer specializing in building high-performance, beautifully animated web applications. Experienced in React, Next.js, and Node.js ecosystems with a strong focus on pixel-perfect UI, clean architecture, and seamless user experiences. Proven track record of delivering production-ready projects from concept to deployment.</p>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Projects</div>
+        <div class="proj-grid">
+          <div class="proj">
+            <div class="proj-name">Findra</div>
+            <div class="proj-type">AI Search Intelligence</div>
+            <div class="proj-desc">Turns any search query into structured data cards using AI. Features multi-provider fallback, Google Auth, and real-time extraction.</div>
+            <div class="tech-row"><span class="tech-pill">Next.js</span><span class="tech-pill">Claude AI</span><span class="tech-pill">SerpAPI</span><span class="tech-pill">Firebase</span></div>
+          </div>
+          <div class="proj">
+            <div class="proj-name">FashionStore</div>
+            <div class="proj-type">E-Commerce Platform</div>
+            <div class="proj-desc">Production e-commerce with 360+ products, Stripe checkout, admin panel, and fully responsive storefront.</div>
+            <div class="tech-row"><span class="tech-pill">React</span><span class="tech-pill">Node.js</span><span class="tech-pill">MongoDB</span><span class="tech-pill">Stripe</span></div>
+          </div>
+          <div class="proj">
+            <div class="proj-name">SharePulse</div>
+            <div class="proj-type">P2P File Sharing</div>
+            <div class="proj-desc">Real-time peer-to-peer file transfer using WebRTC with 6-digit OTP key exchange for secure sharing.</div>
+            <div class="tech-row"><span class="tech-pill">WebRTC</span><span class="tech-pill">Socket.io</span><span class="tech-pill">Node.js</span></div>
+          </div>
+          <div class="proj">
+            <div class="proj-name">PixAura</div>
+            <div class="proj-type">Image Tools Suite</div>
+            <div class="proj-desc">Browser-based image editor with AI background removal, filters, compression, and batch processing tools.</div>
+            <div class="tech-row"><span class="tech-pill">React</span><span class="tech-pill">Canvas API</span><span class="tech-pill">AI APIs</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Experience</div>
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-role">Freelance Full-Stack Developer</span>
+            <span class="entry-date">2024 — Present</span>
+          </div>
+          <div class="entry-org">Self-Employed · Remote</div>
+          <ul class="entry-bullets">
+            <li>Designed and shipped 10+ production web applications for clients</li>
+            <li>Built end-to-end solutions with React, Next.js, Node.js, and MongoDB</li>
+            <li>Created premium UI animations using GSAP and custom CSS</li>
+            <li>Managed deployments on Vercel, Render, and Firebase hosting</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="section">
+        <div class="section-title">Education</div>
+        <div class="entry">
+          <div class="entry-top">
+            <span class="entry-role">BS Computer Science</span>
+            <span class="entry-date">2022 — Present</span>
+          </div>
+          <div class="entry-org">Your University Name</div>
+          <ul class="entry-bullets">
+            <li>Data Structures, Algorithms, Web Development, Database Systems, OOP</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+    <div class="col-side">
+
+      <div class="side-section">
+        <div class="side-title">Tech Stack</div>
+        <div class="skill-group">
+          <div class="skill-label">Frontend</div>
+          <div class="skill-list">
+            <span class="skill-chip">React</span>
+            <span class="skill-chip">Next.js</span>
+            <span class="skill-chip">TypeScript</span>
+            <span class="skill-chip">JavaScript</span>
+            <span class="skill-chip">Tailwind</span>
+            <span class="skill-chip">GSAP</span>
+            <span class="skill-chip">HTML/CSS</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">Backend</div>
+          <div class="skill-list">
+            <span class="skill-chip">Node.js</span>
+            <span class="skill-chip">Express</span>
+            <span class="skill-chip">MongoDB</span>
+            <span class="skill-chip">Firebase</span>
+            <span class="skill-chip">REST APIs</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-label">DevOps & Tools</div>
+          <div class="skill-list">
+            <span class="skill-chip">Git</span>
+            <span class="skill-chip">Vercel</span>
+            <span class="skill-chip">Vite</span>
+            <span class="skill-chip">Figma</span>
+            <span class="skill-chip">VS Code</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-title">Languages</div>
+        <div class="lang-row">
+          <div class="lang-top"><span class="lang-name">Urdu</span><span class="lang-lvl">Native</span></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:100%"></div></div>
+        </div>
+        <div class="lang-row">
+          <div class="lang-top"><span class="lang-name">English</span><span class="lang-lvl">Fluent</span></div>
+          <div class="lang-bar"><div class="lang-fill" style="width:85%"></div></div>
+        </div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-title">Strengths</div>
+        <div class="soft-item"><span class="soft-dot"></span> Pixel-Perfect UI</div>
+        <div class="soft-item"><span class="soft-dot"></span> Clean Architecture</div>
+        <div class="soft-item"><span class="soft-dot"></span> Performance Focus</div>
+        <div class="soft-item"><span class="soft-dot"></span> Creative Problem Solving</div>
+        <div class="soft-item"><span class="soft-dot"></span> Rapid Learner</div>
+        <div class="soft-item"><span class="soft-dot"></span> Team Collaboration</div>
+      </div>
+
+      <div class="side-section">
+        <div class="side-title">Interests</div>
+        <div class="soft-item"><span class="soft-dot"></span> UI/UX Design</div>
+        <div class="soft-item"><span class="soft-dot"></span> Open Source</div>
+        <div class="soft-item"><span class="soft-dot"></span> Web Animations</div>
+        <div class="soft-item"><span class="soft-dot"></span> AI & LLMs</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

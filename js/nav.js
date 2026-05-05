@@ -2,7 +2,15 @@
    NAV.JS — Navigation, Mobile Drawer, Scroll Spy
    ═══════════════════════════════════════════ */
 
+// AbortController to clean up previous listeners on re-init
+let navAbort = null;
+
 export function initNav() {
+  // Abort any previous listeners so we don't stack duplicates
+  if (navAbort) navAbort.abort();
+  navAbort = new AbortController();
+  const signal = navAbort.signal;
+
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const drawer = document.getElementById('mobile-drawer');
@@ -10,6 +18,12 @@ export function initNav() {
   const navLinks = document.querySelectorAll('.nav-links a');
 
   if (!navbar) return;
+
+  // Reset any stale state from previous page
+  if (hamburger) hamburger.classList.remove('active');
+  if (drawer) drawer.classList.remove('open');
+  if (overlay) overlay.classList.remove('visible');
+  document.body.style.overflow = '';
 
   // Scroll shadow
   function onScroll() {
@@ -19,7 +33,7 @@ export function initNav() {
       navbar.classList.remove('scrolled');
     }
   }
-  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('scroll', onScroll, { passive: true, signal });
   onScroll();
 
   // Active link - based on current page
@@ -57,14 +71,14 @@ export function initNav() {
     document.body.style.overflow = '';
   }
 
-  if (hamburger) hamburger.addEventListener('click', toggleDrawer);
-  if (overlay) overlay.addEventListener('click', closeDrawer);
+  if (hamburger) hamburger.addEventListener('click', toggleDrawer, { signal });
+  if (overlay) overlay.addEventListener('click', closeDrawer, { signal });
 
   // × close button inside drawer
   const closeBtn = document.getElementById('drawer-close');
-  if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+  if (closeBtn) closeBtn.addEventListener('click', closeDrawer, { signal });
 
-  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+  drawerLinks.forEach(link => link.addEventListener('click', closeDrawer, { signal }));
 
   // Smooth scroll for hash links on same page
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -75,7 +89,7 @@ export function initNav() {
         closeDrawer();
         target.scrollIntoView({ behavior: 'smooth' });
       }
-    });
+    }, { signal });
   });
 }
 

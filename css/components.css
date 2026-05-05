@@ -721,11 +721,14 @@
   pointer-events: none;
 }
 .preloader-text {
-  font-family: var(--font-heading);
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--text-heading);
-  letter-spacing: 0.08em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.preloader-logo {
+  height: 56px;
+  width: 56px;
+  object-fit: contain;
 }
 .preloader-bar-wrap {
   width: 200px;

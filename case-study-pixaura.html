@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Case Study: Building PixAura — a modern browser-based image tools suite with AI background removal.">
-  <title>PixAura Case Study — Muhammad Huraira</title>
-  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#E8E8E8;font-family:system-ui,sans-serif;overflow-x:hidden}.preloader{position:fixed;inset:0;background:#000;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.preloader-text{font-size:1.8rem;font-weight:700;color:#fff;letter-spacing:.08em}.preloader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}.preloader-bar{width:0%;height:100%;background:linear-gradient(90deg,#00A3FF,#00F5FF);border-radius:10px}.preloader-counter{font-size:.72rem;color:#555;letter-spacing:.1em;font-family:monospace}[data-barba="wrapper"]{opacity:0}</style>
+  <meta name="description" content="Case Study: Building PixAura ï¿½ a modern browser-based image tools suite with AI background removal.">
+  <title>PixAura Case Study ï¿½ Muhammad Huraira</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#E8E8E8;font-family:system-ui,sans-serif;overflow-x:hidden}.preloader{position:fixed;inset:0;background:#000;z-index:100000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.preloader-text{display:flex;align-items:center;justify-content:center}.preloader-logo{height:56px;width:56px;object-fit:contain}.preloader-bar-wrap{width:200px;height:2px;background:rgba(255,255,255,.06);border-radius:10px;overflow:hidden}.preloader-bar{width:0%;height:100%;background:linear-gradient(90deg,#00A3FF,#00F5FF);border-radius:10px}.preloader-counter{font-size:.72rem;color:#555;letter-spacing:.1em;font-family:monospace}[data-barba="wrapper"]{opacity:0}</style>
   <link rel="icon" type="image/png" href="/favicon.png"><link rel="apple-touch-icon" href="/favicon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +15,7 @@
 
   <!-- --- PRELOADER --- -->
   <div class="preloader" id="preloader">
-    <div class="preloader-text">MH</div>
+    <div class="preloader-text"><img src="/logo.png" alt="MH Logo" class="preloader-logo" /></div>
     <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
     <div class="preloader-counter">0%</div>
   </div>
@@ -57,7 +57,7 @@
             <a href="/blog.html" class="label" style="margin-bottom:1.5rem;display:inline-block;opacity:0.7;">? Back to Blog</a>
             <div class="section-label">Case Study</div>
             <h1 class="section-title velocity-text">PixAura<span class="stitch-underline"></span></h1>
-            <p class="section-desc" style="max-width:640px;">A modern, portfolio-ready image tools web app with 11 browser-based utilities, AI background removal, and a glassmorphism UI — built with React, TypeScript, and Vite.</p>
+            <p class="section-desc" style="max-width:640px;">A modern, portfolio-ready image tools web app with 11 browser-based utilities, AI background removal, and a glassmorphism UI ï¿½ built with React, TypeScript, and Vite.</p>
           </div>
 
           <div class="case-study-meta reveal reveal-delay-1">
@@ -71,7 +71,7 @@
             </div>
             <div class="case-study-meta-item">
               <span class="case-study-meta-label">Stack</span>
-              <span class="case-study-meta-value">React 18 · TypeScript · Vite · Tailwind · shadcn/ui</span>
+              <span class="case-study-meta-value">React 18 ï¿½ TypeScript ï¿½ Vite ï¿½ Tailwind ï¿½ shadcn/ui</span>
             </div>
             <div class="case-study-meta-item">
               <span class="case-study-meta-label">Status</span>
@@ -92,44 +92,44 @@
           <div class="case-study-content">
 
             <h2>The Challenge</h2>
-            <p>Image editing workflows typically force users into heavy desktop apps or questionable online tools that upload private photos to unknown servers. I wanted to build a privacy-friendly, browser-based image processing suite that handles common tasks entirely on the client side — fast, free, and secure.</p>
-            <p>The goal: a single app that covers the full image workflow — compress, resize, convert, crop, rotate, watermark, extract metadata, and even handle PDF conversions — all without ever sending files to a server (except for AI features).</p>
+            <p>Image editing workflows typically force users into heavy desktop apps or questionable online tools that upload private photos to unknown servers. I wanted to build a privacy-friendly, browser-based image processing suite that handles common tasks entirely on the client side ï¿½ fast, free, and secure.</p>
+            <p>The goal: a single app that covers the full image workflow ï¿½ compress, resize, convert, crop, rotate, watermark, extract metadata, and even handle PDF conversions ï¿½ all without ever sending files to a server (except for AI features).</p>
 
             <h2>The Approach</h2>
             <ul>
               <li>Built with <strong>React 18 + TypeScript + Vite</strong> for a fast, type-safe developer experience with instant HMR</li>
               <li>Designed a modern <strong>glassmorphism UI</strong> using Tailwind CSS and shadcn/ui components for a consistent, premium look</li>
-              <li>Implemented all core image operations <strong>client-side</strong> using the Canvas API and Web Workers — no server uploads for compression, resizing, cropping, or format conversion</li>
-              <li>Integrated <strong>Replicate API (U²-Net segmentation)</strong> for AI-powered background removal with a server-side middleware route to protect API tokens</li>
+              <li>Implemented all core image operations <strong>client-side</strong> using the Canvas API and Web Workers ï¿½ no server uploads for compression, resizing, cropping, or format conversion</li>
+              <li>Integrated <strong>Replicate API (Uï¿½-Net segmentation)</strong> for AI-powered background removal with a server-side middleware route to protect API tokens</li>
               <li>Built a <strong>demo mode fallback</strong> that serves static mock outputs for portfolio deployments without API billing</li>
               <li>Used <strong>pdf-lib and pdfjs-dist</strong> for client-side PDF-to-image and image-to-PDF conversions</li>
               <li>Deployed on <strong>Vercel</strong> with SPA route rewrites for clean URL handling</li>
             </ul>
 
-            <h2>Complete Toolset — 11 Tools</h2>
+            <h2>Complete Toolset ï¿½ 11 Tools</h2>
             <ul>
-              <li><strong>Compress Image</strong> — Reduce file size with adjustable quality while preserving visual fidelity</li>
-              <li><strong>Resize Image</strong> — Scale images to exact dimensions or percentage with aspect ratio lock</li>
-              <li><strong>Convert Format</strong> — Switch between PNG, JPEG, WebP, and other formats instantly</li>
-              <li><strong>Crop Image</strong> — Interactive crop with preset ratios (1:1, 16:9, 4:3) and free-form selection</li>
-              <li><strong>Rotate & Flip</strong> — 90° rotations and horizontal/vertical flipping</li>
-              <li><strong>Add Watermark</strong> — Overlay text or image watermarks with position, opacity, and size controls</li>
-              <li><strong>Background Remover</strong> — AI-powered segmentation with interactive before/after comparison slider</li>
-              <li><strong>Image to PDF</strong> — Combine multiple images into a single PDF with page ordering</li>
-              <li><strong>PDF to Images</strong> — Extract individual pages from PDFs as high-quality images</li>
-              <li><strong>Bulk Processing</strong> — Batch compress, resize, or convert multiple files simultaneously</li>
-              <li><strong>Metadata Viewer</strong> — Read EXIF data including camera info, GPS coordinates, and timestamps</li>
+              <li><strong>Compress Image</strong> ï¿½ Reduce file size with adjustable quality while preserving visual fidelity</li>
+              <li><strong>Resize Image</strong> ï¿½ Scale images to exact dimensions or percentage with aspect ratio lock</li>
+              <li><strong>Convert Format</strong> ï¿½ Switch between PNG, JPEG, WebP, and other formats instantly</li>
+              <li><strong>Crop Image</strong> ï¿½ Interactive crop with preset ratios (1:1, 16:9, 4:3) and free-form selection</li>
+              <li><strong>Rotate & Flip</strong> ï¿½ 90ï¿½ rotations and horizontal/vertical flipping</li>
+              <li><strong>Add Watermark</strong> ï¿½ Overlay text or image watermarks with position, opacity, and size controls</li>
+              <li><strong>Background Remover</strong> ï¿½ AI-powered segmentation with interactive before/after comparison slider</li>
+              <li><strong>Image to PDF</strong> ï¿½ Combine multiple images into a single PDF with page ordering</li>
+              <li><strong>PDF to Images</strong> ï¿½ Extract individual pages from PDFs as high-quality images</li>
+              <li><strong>Bulk Processing</strong> ï¿½ Batch compress, resize, or convert multiple files simultaneously</li>
+              <li><strong>Metadata Viewer</strong> ï¿½ Read EXIF data including camera info, GPS coordinates, and timestamps</li>
             </ul>
 
             <h2>Technical Highlights</h2>
-            <p>The AI background removal was the most complex feature. The live mode sends images to U²-Net segmentation via the Replicate API through a secure server-side route — API tokens never touch the client. For portfolio deployments, I built a <strong>demo mode</strong> that returns a pre-processed transparent PNG, allowing the full UI flow to work without incurring API costs.</p>
-            <p>For client-side processing, I leveraged the Canvas API extensively — resizing uses Lanczos resampling for quality, compression adjusts JPEG quality parameter dynamically, and format conversion creates new Blob objects from canvas data. All operations are non-blocking using <strong>async patterns</strong> to keep the UI responsive even on large files.</p>
+            <p>The AI background removal was the most complex feature. The live mode sends images to Uï¿½-Net segmentation via the Replicate API through a secure server-side route ï¿½ API tokens never touch the client. For portfolio deployments, I built a <strong>demo mode</strong> that returns a pre-processed transparent PNG, allowing the full UI flow to work without incurring API costs.</p>
+            <p>For client-side processing, I leveraged the Canvas API extensively ï¿½ resizing uses Lanczos resampling for quality, compression adjusts JPEG quality parameter dynamically, and format conversion creates new Blob objects from canvas data. All operations are non-blocking using <strong>async patterns</strong> to keep the UI responsive even on large files.</p>
             <p>The metadata viewer uses the <strong>exifr</strong> library to parse EXIF, IPTC, and XMP data directly in the browser, displaying camera model, lens info, exposure settings, GPS coordinates, and more.</p>
 
             <h2>Results</h2>
             <ul>
               <li>11 fully functional image tools running entirely in the browser</li>
-              <li>Privacy-first architecture — zero server uploads for core tools</li>
+              <li>Privacy-first architecture ï¿½ zero server uploads for core tools</li>
               <li>AI background removal with interactive before/after comparison</li>
               <li>Clean, responsive glassmorphism UI that works across all devices</li>
               <li>Portfolio-safe demo mode for billing-free deployments</li>
@@ -203,12 +203,12 @@
             <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
             huraira3076@gmail.com
           </a>
-          <span class="footer-contact-dot">·</span>
+          <span class="footer-contact-dot">ï¿½</span>
           <a href="tel:+923326871681" class="footer-contact-pill">
             <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
             +92 332 6871681
           </a>
-          <span class="footer-contact-dot">·</span>
+          <span class="footer-contact-dot">ï¿½</span>
           <span class="footer-contact-pill static">
             <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
             Pakistan
@@ -216,7 +216,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p class="footer-copy">© 2026 Muhammad Huraira. All rights reserved.</p>
+          <p class="footer-copy">ï¿½ 2026 Muhammad Huraira. All rights reserved.</p>
           <p class="footer-craft">Crafted with thread & code ?</p>
         </div>
       </footer>
@@ -224,7 +224,7 @@
   </div>
 
   <!-- Scroll to Top -->
-  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top">?</button>
+  <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 
   <script type="module" src="/js/main.js"></script>
 </body>
