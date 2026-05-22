@@ -69,31 +69,47 @@ function initPageSpecific() {
   if (heroCanvas) {
     initHeroParticles('hero-canvas');
 
-    const heroName = document.getElementById('hero-name');
-    if (heroName) {
-      stitchReveal(heroName, 'Muhammad Huraira', { delay: 0.8 });
-    }
+    // Only run hero entrance animations once (not on Barba re-visits)
+    if (!window._heroAnimated) {
+      window._heroAnimated = true;
 
-    const heroSubtitle = document.getElementById('hero-subtitle');
-    if (heroSubtitle) {
-      typingEffect(heroSubtitle, 'Web Developer · UI Craftsman · Code Poet', {
-        delay: 2.5,
-        speed: 50
+      const heroName = document.getElementById('hero-name');
+      if (heroName) {
+        stitchReveal(heroName, 'Muhammad Huraira', { delay: 0.8 });
+      }
+
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) {
+        typingEffect(heroSubtitle, 'Web Developer · UI Craftsman · Code Poet', {
+          delay: 2.5,
+          speed: 50
+        });
+      }
+
+      // ── Split hero entrance animations ──
+      gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.7, delay: 0.5 });
+      gsap.from('.hero-orbit-wrap', { opacity: 0, scale: 0.8, duration: 1.2, delay: 0.3, ease: 'back.out(1.4)' });
+      gsap.from('.hero-stats-row', { opacity: 0, y: 20, duration: 0.7, delay: 2.8 });
+
+      gsap.from('.hero-cta-group', {
+        y: 30, opacity: 0, duration: 0.8, delay: 3.5, ease: 'back.out(1.5)'
+      });
+
+      gsap.from('.hero-scroll-hint', {
+        opacity: 0, duration: 1, delay: 4, ease: 'power2.out'
+      });
+    } else {
+      // On re-visit, just show everything immediately
+      const heroName = document.getElementById('hero-name');
+      if (heroName) heroName.textContent = 'Muhammad Huraira';
+
+      const heroSubtitle = document.getElementById('hero-subtitle');
+      if (heroSubtitle) heroSubtitle.textContent = 'Web Developer · UI Craftsman · Code Poet';
+
+      gsap.set('.hero-badge, .hero-orbit-wrap, .hero-stats-row, .hero-cta-group, .hero-scroll-hint', {
+        opacity: 1, y: 0, scale: 1
       });
     }
-
-    // ── Split hero entrance animations ──
-    gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.7, delay: 0.5 });
-    gsap.from('.hero-orbit-wrap', { opacity: 0, scale: 0.8, duration: 1.2, delay: 0.3, ease: 'back.out(1.4)' });
-    gsap.from('.hero-stats-row', { opacity: 0, y: 20, duration: 0.7, delay: 2.8 });
-
-    gsap.from('.hero-cta-group', {
-      y: 30, opacity: 0, duration: 0.8, delay: 3.5, ease: 'back.out(1.5)'
-    });
-
-    gsap.from('.hero-scroll-hint', {
-      opacity: 0, duration: 1, delay: 4, ease: 'power2.out'
-    });
   }
 
   // ── Terminal ──
