@@ -99,16 +99,24 @@ function initPageSpecific() {
         opacity: 0, duration: 1, delay: 4, ease: 'power2.out'
       });
     } else {
-      // On re-visit, just show everything immediately
+      // On re-visit, show with smooth fade-in animations
       const heroName = document.getElementById('hero-name');
-      if (heroName) heroName.textContent = 'Muhammad Huraira';
+      if (heroName) {
+        heroName.textContent = 'Muhammad Huraira';
+        gsap.fromTo(heroName, { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.8, ease: 'power2.out' });
+      }
 
       const heroSubtitle = document.getElementById('hero-subtitle');
-      if (heroSubtitle) heroSubtitle.textContent = 'Web Developer · UI Craftsman · Code Poet';
+      if (heroSubtitle) {
+        heroSubtitle.textContent = 'Web Developer · UI Craftsman · Code Poet';
+        gsap.fromTo(heroSubtitle, { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.7, delay: 0.2, ease: 'power2.out' });
+      }
 
-      gsap.set('.hero-badge, .hero-orbit-wrap, .hero-stats-row, .hero-cta-group, .hero-scroll-hint', {
-        opacity: 1, y: 0, scale: 1
-      });
+      gsap.fromTo('.hero-badge', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.1, ease: 'power2.out' });
+      gsap.fromTo('.hero-orbit-wrap', { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.8, ease: 'back.out(1.4)' });
+      gsap.fromTo('.hero-stats-row', { opacity: 0, y: 15 }, { opacity: 1, y: 0, duration: 0.6, delay: 0.3, ease: 'power2.out' });
+      gsap.fromTo('.hero-cta-group', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.7, delay: 0.4, ease: 'back.out(1.5)' });
+      gsap.fromTo('.hero-scroll-hint', { opacity: 0 }, { opacity: 1, duration: 0.6, delay: 0.5, ease: 'power2.out' });
     }
   }
 
