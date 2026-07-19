@@ -10,6 +10,7 @@ export default defineConfig({
         projects: resolve(__dirname, 'projects.html'),
         contact: resolve(__dirname, 'contact.html'),
         blog: resolve(__dirname, 'blog.html'),
+        certificates: resolve(__dirname, 'certificates.html'),
         caseStudyFindra: resolve(__dirname, 'case-study-findra.html'),
         caseStudySharepulse: resolve(__dirname, 'case-study-sharepulse.html'),
         caseStudyFashionstore: resolve(__dirname, 'case-study-fashionstore.html'),
