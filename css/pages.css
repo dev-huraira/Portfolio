@@ -741,6 +741,220 @@
 }
 
 /* ══════════════════════════════
+   CERTIFICATES PAGE
+   ══════════════════════════════ */
+.certificates-intro {
+  padding-top: calc(var(--nav-height) + 4rem);
+}
+
+.certificates-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 2rem;
+}
+
+.certificate-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.5s var(--ease-spring);
+  will-change: transform;
+}
+.certificate-card:hover {
+  border-color: var(--border-hover);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-6px);
+}
+
+.certificate-image-wrap {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: rgba(255,255,255,0.02);
+}
+.certificate-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s var(--ease-spring);
+  cursor: pointer;
+}
+.certificate-card:hover .certificate-image {
+  transform: scale(1.04);
+}
+
+.certificate-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.certificate-badge.purple {
+  background: rgba(138, 43, 226, 0.25);
+  border: 1px solid rgba(138, 43, 226, 0.4);
+  color: #c084fc;
+}
+.certificate-badge.blue {
+  background: rgba(0, 163, 255, 0.25);
+  border: 1px solid rgba(0, 163, 255, 0.4);
+  color: #60b8ff;
+}
+.certificate-badge.mint {
+  background: rgba(0, 255, 178, 0.2);
+  border: 1px solid rgba(0, 255, 178, 0.35);
+  color: #5dffc2;
+}
+.certificate-badge.rose {
+  background: rgba(255, 51, 102, 0.25);
+  border: 1px solid rgba(255, 51, 102, 0.4);
+  color: #ff6b8a;
+}
+
+.certificate-body {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.certificate-org {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+.certificate-org-name {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--accent-blue);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.certificate-date {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+.certificate-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  margin-bottom: 0.75rem;
+  line-height: 1.4;
+}
+
+.certificate-meta {
+  margin-bottom: 1rem;
+}
+.certificate-id {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.06);
+}
+.certificate-id svg {
+  opacity: 0.6;
+}
+
+.certificate-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.certificate-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* ── Certificate Lightbox ── */
+.cert-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+.cert-lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+.cert-lightbox-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+.cert-lightbox-close {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 10;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.cert-lightbox-close:hover {
+  background: rgba(255,255,255,0.18);
+  border-color: rgba(255,255,255,0.3);
+  transform: rotate(90deg);
+}
+.cert-lightbox-img {
+  position: relative;
+  z-index: 5;
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.6);
+  transform: scale(0.9);
+  transition: transform 0.4s var(--ease-spring);
+}
+.cert-lightbox.active .cert-lightbox-img {
+  transform: scale(1);
+}
+
+@media (max-width: 480px) {
+  .certificates-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ══════════════════════════════
    CONTACT PAGE
    ══════════════════════════════ */
 .contact-intro {

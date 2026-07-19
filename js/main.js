@@ -23,7 +23,7 @@ import { initPageTransitions } from './transitions.js';
 import { initTerminal } from './terminal.js';
 import { initSkillBars, initGitHubGraph, initResumeBurst, initScrollDots, initMarquee, initProjectPreviews, initKeyboardNav } from './features.js';
 // Theme toggle removed — dark mode only
-import { initLiveClock, initScrollVelocity, initScrollToTop, initFooterAccordion } from './extras.js';
+import { initLiveClock, initScrollVelocity, initScrollToTop } from './extras.js';
 import { initCodeGlobe } from './globe.js';
 import { initContactForm } from './contact.js';
 
@@ -58,7 +58,6 @@ function initShared() {
   initScrollVelocity();
   initKeyboardNav();
   initScrollToTop();
-  initFooterAccordion();
 }
 
 function initPageSpecific() {

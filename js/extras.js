@@ -81,36 +81,3 @@ export function initScrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 }
-
-/**
- * Footer Accordion — mobile only
- * Clicking a column title toggles its links open/closed
- */
-export function initFooterAccordion() {
-  const titles = document.querySelectorAll('.footer-acc-row .footer-col-title');
-  if (!titles.length) return;
-
-  titles.forEach(title => {
-    title.addEventListener('click', () => {
-      const body = title.nextElementSibling;
-      if (!body || !body.classList.contains('footer-accordion-body')) return;
-
-      const isOpen = title.classList.contains('open');
-
-      // Close all others
-      titles.forEach(t => {
-        t.classList.remove('open');
-        const b = t.nextElementSibling;
-        if (b && b.classList.contains('footer-accordion-body')) {
-          b.classList.remove('open');
-        }
-      });
-
-      // Toggle clicked
-      if (!isOpen) {
-        title.classList.add('open');
-        body.classList.add('open');
-      }
-    });
-  });
-}
