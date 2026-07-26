@@ -31,6 +31,11 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
+// Disable browser scroll restoration immediately
+if ('scrollRestoration' in history) {
+  history.scrollRestoration = 'manual';
+}
+
 /* ── Lenis Smooth Scroll ── */
 let lenis;
 function initLenis() {
@@ -40,6 +45,9 @@ function initLenis() {
     smoothWheel: true,
     touchMultiplier: 1.5,
   });
+
+  // Force Lenis to start at top
+  lenis.scrollTo(0, { immediate: true });
 
   lenis.on('scroll', ScrollTrigger.update);
   gsap.ticker.add((time) => { lenis.raf(time * 1000); });
@@ -72,31 +80,38 @@ function initPageSpecific() {
     if (!window._heroAnimated) {
       window._heroAnimated = true;
 
+      // Pre-set elements to invisible for smooth entrance
+      gsap.set(['.hero-badge', '.hero-orbit-wrap', '.hero-stats-row', '.hero-cta-group', '.hero-scroll-hint'], {
+        opacity: 0, willChange: 'transform, opacity'
+      });
+
       const heroName = document.getElementById('hero-name');
       if (heroName) {
-        stitchReveal(heroName, 'Muhammad Huraira', { delay: 0.8 });
+        stitchReveal(heroName, 'Muhammad Huraira', { delay: 0.6 });
       }
 
       const heroSubtitle = document.getElementById('hero-subtitle');
       if (heroSubtitle) {
         typingEffect(heroSubtitle, 'Web Developer · UI Craftsman · Code Poet', {
-          delay: 2.5,
+          delay: 2.0,
           speed: 50
         });
       }
 
-      // ── Split hero entrance animations ──
-      gsap.from('.hero-badge', { opacity: 0, y: 20, duration: 0.7, delay: 0.5 });
-      gsap.from('.hero-orbit-wrap', { opacity: 0, scale: 0.8, duration: 1.2, delay: 0.3, ease: 'back.out(1.4)' });
-      gsap.from('.hero-stats-row', { opacity: 0, y: 20, duration: 0.7, delay: 2.8 });
+      // ── Sequenced hero entrance timeline ──
+      const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
-      gsap.from('.hero-cta-group', {
-        y: 30, opacity: 0, duration: 0.8, delay: 3.5, ease: 'back.out(1.5)'
-      });
+      heroTl
+        .to('.hero-orbit-wrap', { opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.2)' }, 0.2)
+        .from('.hero-orbit-wrap', { scale: 0.85, duration: 0.9, ease: 'back.out(1.2)' }, 0.2)
+        .to('.hero-badge', { opacity: 1, y: 0, duration: 0.6 }, 0.3)
+        .from('.hero-badge', { y: 20, duration: 0.6 }, 0.3)
+        .to('.hero-stats-row', { opacity: 1, y: 0, duration: 0.6 }, 2.2)
+        .from('.hero-stats-row', { y: 20, duration: 0.6 }, 2.2)
+        .to('.hero-cta-group', { opacity: 1, y: 0, duration: 0.7, ease: 'back.out(1.5)' }, 2.8)
+        .from('.hero-cta-group', { y: 25, duration: 0.7, ease: 'back.out(1.5)' }, 2.8)
+        .to('.hero-scroll-hint', { opacity: 1, duration: 0.8 }, 3.2);
 
-      gsap.from('.hero-scroll-hint', {
-        opacity: 0, duration: 1, delay: 4, ease: 'power2.out'
-      });
     } else {
       // On re-visit, show with smooth fade-in animations
       const heroName = document.getElementById('hero-name');
@@ -352,6 +367,8 @@ function initCertLightbox() {
 
 /* ═══ BOOT ═══ */
 document.addEventListener('DOMContentLoaded', async () => {
+  window.scrollTo(0, 0);
+
   await initPreloader();
   initLenis();
   initCursor();
@@ -362,4 +379,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     initShared();
     initPageSpecific();
   });
+});
+
+window.addEventListener('load', () => {
+  window.scrollTo(0, 0);
+  if (lenis) lenis.scrollTo(0, { immediate: true });
 });
