@@ -234,10 +234,13 @@ function initPageSpecific() {
   }
 
   // ── Text Scramble page titles ──
-  ['about-scramble', 'projects-scramble', 'contact-scramble', 'blog-scramble'].forEach(id => {
+  ['about-scramble', 'projects-scramble', 'contact-scramble', 'blog-scramble', 'certificates-scramble'].forEach(id => {
     const el = document.getElementById(id);
     if (el) textScramble(el, el.dataset.text || el.textContent, { delay: 0.3 });
   });
+
+  // ── Certificate Lightbox ──
+  initCertLightbox();
 
   // ── Contact Form ──
   const contactForm = document.getElementById('contact-form');
@@ -298,6 +301,53 @@ function initContactFormParticles() {
       });
     }
   };
+}
+
+function initCertLightbox() {
+  const certImages = document.querySelectorAll('.certificate-image');
+  if (!certImages.length) return;
+
+  // Remove any existing lightbox (prevents duplicates on re-navigation)
+  const existing = document.getElementById('cert-lightbox');
+  if (existing) existing.remove();
+
+  // Dynamically create lightbox modal
+  const lightbox = document.createElement('div');
+  lightbox.className = 'cert-lightbox';
+  lightbox.id = 'cert-lightbox';
+  lightbox.innerHTML = `
+    <div class="cert-lightbox-overlay"></div>
+    <button class="cert-lightbox-close" aria-label="Close lightbox">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+    </button>
+    <img class="cert-lightbox-img" src="" alt="Certificate Preview" />
+  `;
+  document.body.appendChild(lightbox);
+
+  const lightboxImg = lightbox.querySelector('.cert-lightbox-img');
+  const closeBtn = lightbox.querySelector('.cert-lightbox-close');
+  const overlay = lightbox.querySelector('.cert-lightbox-overlay');
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+
+  // Open lightbox on certificate image click
+  certImages.forEach(img => {
+    img.addEventListener('click', () => {
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  closeBtn.addEventListener('click', closeLightbox);
+  overlay.addEventListener('click', closeLightbox);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
 }
 
 /* ═══ BOOT ═══ */

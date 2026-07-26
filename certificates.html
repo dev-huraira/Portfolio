@@ -242,47 +242,9 @@
     </div>
   </div>
 
-  <!-- Certificate Lightbox Modal -->
-  <div class="cert-lightbox" id="cert-lightbox">
-    <div class="cert-lightbox-overlay"></div>
-    <button class="cert-lightbox-close" id="cert-lightbox-close" aria-label="Close lightbox">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
-    <img class="cert-lightbox-img" id="cert-lightbox-img" src="" alt="Certificate Preview" />
-  </div>
-
   <!-- Scroll to Top -->
   <button class="scroll-to-top" id="scroll-to-top" aria-label="Scroll to top"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5"/><path d="m5 12 7-7 7 7"/></svg></button>
 
   <script type="module" src="/js/main.js"></script>
-  <script>
-    (function() {
-      const lightbox = document.getElementById('cert-lightbox');
-      const lightboxImg = document.getElementById('cert-lightbox-img');
-      const closeBtn = document.getElementById('cert-lightbox-close');
-      const overlay = lightbox.querySelector('.cert-lightbox-overlay');
-
-      // Open lightbox on certificate image click
-      document.querySelectorAll('.certificate-image').forEach(img => {
-        img.addEventListener('click', () => {
-          lightboxImg.src = img.src;
-          lightboxImg.alt = img.alt;
-          lightbox.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        });
-      });
-
-      // Close lightbox
-      function closeLightbox() {
-        lightbox.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      closeBtn.addEventListener('click', closeLightbox);
-      overlay.addEventListener('click', closeLightbox);
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
-      });
-    })();
-  </script>
 </body>
 </html>
