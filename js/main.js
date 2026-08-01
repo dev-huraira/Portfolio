@@ -102,15 +102,11 @@ function initPageSpecific() {
       const heroTl = gsap.timeline({ defaults: { ease: 'power2.out' } });
 
       heroTl
-        .to('.hero-orbit-wrap', { opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.2)' }, 0.2)
-        .from('.hero-orbit-wrap', { scale: 0.85, duration: 0.9, ease: 'back.out(1.2)' }, 0.2)
-        .to('.hero-badge', { opacity: 1, y: 0, duration: 0.6 }, 0.3)
-        .from('.hero-badge', { y: 20, duration: 0.6 }, 0.3)
-        .to('.hero-stats-row', { opacity: 1, y: 0, duration: 0.6 }, 2.2)
-        .from('.hero-stats-row', { y: 20, duration: 0.6 }, 2.2)
-        .to('.hero-cta-group', { opacity: 1, y: 0, duration: 0.7, ease: 'back.out(1.5)' }, 2.8)
-        .from('.hero-cta-group', { y: 25, duration: 0.7, ease: 'back.out(1.5)' }, 2.8)
-        .to('.hero-scroll-hint', { opacity: 1, duration: 0.8 }, 3.2);
+        .fromTo('.hero-orbit-wrap', { opacity: 0, scale: 0.85 }, { opacity: 1, scale: 1, duration: 0.9, ease: 'back.out(1.2)' }, 0.2)
+        .fromTo('.hero-badge', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 0.3)
+        .fromTo('.hero-stats-row', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6 }, 2.2)
+        .fromTo('.hero-cta-group', { opacity: 0, y: 25 }, { opacity: 1, y: 0, duration: 0.7, ease: 'back.out(1.5)' }, 2.8)
+        .fromTo('.hero-scroll-hint', { opacity: 0 }, { opacity: 1, duration: 0.8 }, 3.2);
 
     } else {
       // On re-visit, show with smooth fade-in animations
